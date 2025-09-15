@@ -66,7 +66,6 @@
                                  ONLY ADD THE LIBRARIES HERE YOU WANT TO BE INCLUDED IN YOUR PLUGIN.JAR
                                  -->
                             <include>com.github.kangarko:Foundation*</include>
-                            <include>org.mineacademy.plugin:Vault*</include>
                             <include>de.rapha149.signgui:signgui*</include>
                             <include>net.kyori:adventure-text-minimessage*</include>
                         </includes>
