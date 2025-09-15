@@ -1,0 +1,4 @@
+name: mMarket
+version: '0.1'
+main: me.mixberry.mMarket.mMarket
+api-version: '1.21'

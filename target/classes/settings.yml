@@ -1,0 +1,13 @@
+Player_Market:
+  minimum_price: 10
+  fee: 25
+  expiration:
+    enable: true
+    duration: "8 hours"
+
+Decoration:
+  primary_color_item: PURPLE_STAINED_GLASS_PANE
+  secondary_color_item: BLACK_STAINED_GLASS_PANE
+  accent_color_item: GRAY_STAINED_GLASS_PANE
+
+Date_Format_Short: "dd/MM/yy HH:mm"

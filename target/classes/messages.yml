@@ -1,0 +1,71 @@
+item_expired: "&#dc2424The item that you're reviewing is now expired."
+not_enough_money: "&#dc2424You can't afford this!"
+purchase_success: "&#84cc14Successfully purchase &f{itemName} &rx{itemAmount} &#84cc14for &6{price}$"
+sold_message: "&#84cc14You've received &6{price}$ &#84cc14from player market!"
+not_holding_item: "&#dc2424You must hold an item to use this command!"
+not_enough_fee: "&#dc2424You must have {fee}$ for player market''s fee!"
+inventory_full: "&#dc2424Inventory full!"
+
+confirm_sell_messages:
+  - " "
+  - "  &7You're about to sell &f{item} x{itemAmount}"
+  - "  &7for &f{price}$&7, you'll be charged &f{fee}$ &7for fee"
+  - " "
+
+confirm_sell_button: "&#84cc14&l → Click here to confirm...\n&r"
+confirm_sell_hover: "&7Click to confirm"
+
+
+Player_Market_Menu:
+  title: "Player Market"
+
+  market_item:
+    lore:
+      - " "
+      - "&#9498a4Price: &f{price}"
+      - "&#9498a4Seller: &f{seller}"
+      - "&#9498a4Time left: &f{date}"
+      - " "
+    active_message: "&#84cc14→ Click to purchase item"
+
+  sorting:
+    title: "&#9498a4Sorted by"
+    prefix: "◼ "
+    sorting_newest: "Most recent"
+    sorting_oldest: "Ending soon"
+    sorting_lowest_price: "Lowest price"
+    sorting_highest_price: "Highest price"
+
+  search:
+    default:
+      name: "&aSearch Item"
+      lore: []
+    reset:
+      name: "&cReset Search"
+      lore: []
+    sign_input:
+      line1: ""
+      line2: "^^^^"
+      line3: "Enter the search"
+      line4: "query."
+
+  manage_item:
+    name: "&6Your Items"
+    lore: []
+    items:
+      empty_slot:
+        name: "&#9498a4Empty Slot"
+        lore:
+          - "&7Use &f/sell <price> &7to add"
+          - "&7item on lists."
+    expire_status: "&#dc2424Expired!"
+    cancel_message: "&#eb9234→ Click to cancel!"
+    expired_message: "&#eb9234→ Click to collect item"
+
+  confirm_purchase:
+    confirm_order:
+      name: "&#84cc14Confirm Order"
+      lore: []
+    not_enough_money:
+      name: "#dc2424Not enough money!"
+      lore: []

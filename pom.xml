@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.mixberry</groupId>
+    <artifactId>mMarket</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>PlayerMarket</name>
+
+    <properties>
+        <java.version>21</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.3</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+
+                <!-- Change version to the latest one from
+                     https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-shade-plugin -->
+                <version>3.5.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <artifactSet>
+                        <includes>
+                            <!-- Important: This will ensure only Foundation is shaded to your jar. If you have
+                                 other dependencies that should be compiled, duplicate this line for each.
+
+                                 ONLY ADD THE LIBRARIES HERE YOU WANT TO BE INCLUDED IN YOUR PLUGIN.JAR
+                                 -->
+                            <include>com.github.kangarko:Foundation*</include>
+                            <include>org.mineacademy.plugin:Vault*</include>
+                            <include>de.rapha149.signgui:signgui*</include>
+                            <include>net.kyori:adventure-text-minimessage*</include>
+                        </includes>
+                    </artifactSet>
+                    <relocations>
+                        <!-- This moves Foundation into your own package in "lib" subpackage to prevent interference. -->
+                        <relocation>
+                            <pattern>org.mineacademy.fo</pattern>
+                            <shadedPattern>me.mixberry.mMarket.lib</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>de.rapha149.signgui</pattern>
+                            <shadedPattern>me.mixberry.mMarket.signgui</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>papermc-repo</id>
+            <url>https://repo.papermc.io/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.papermc.paper</groupId>
+            <artifactId>paper-api</artifactId>
+            <version>1.21.8-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.kangarko</groupId>
+            <artifactId>Foundation</artifactId>
+            <version>6.9.22</version>
+        </dependency>
+        <dependency>
+            <groupId>de.rapha149.signgui</groupId>
+            <artifactId>signgui</artifactId>
+            <version>2.5.4</version>
+        </dependency>
+        <dependency>
+            <groupId>net.kyori</groupId>
+            <artifactId>adventure-text-minimessage</artifactId>
+            <version>4.24.0</version>
+        </dependency>
+    </dependencies>
+</project>
